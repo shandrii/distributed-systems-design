@@ -15,7 +15,7 @@ pipeline {
         stage('SonarQube Analysis') {
             steps {
                 withSonarQubeEnv('sq1') {
-                    sh '''mvn clean verify sonar:sonar -Dsonar.projectKey=jenkins-sonar-pipeline -Dsonar.projectName='jenkins-sonar-pipeline' -Dsonar.host.url=http://localhost:9000'''
+                    sh '''mvn clean verify sonar:sonar "-Dsonar.projectKey=jenkins-sonar-pipeline" "-Dsonar.projectName='jenkins-sonar-pipeline'" "-Dsonar.host.url=http://localhost:9000"'''
                     echo 'SonarQube Analysis Completed'
                 }
             }
